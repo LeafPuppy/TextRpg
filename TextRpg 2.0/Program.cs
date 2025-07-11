@@ -124,12 +124,14 @@ namespace TextRpg
                     Console.Write("원하시는 행동을 입력해주세요.\n>> ");
 
                     string subinput = Console.ReadLine();
+                    
                     if (subinput == "0")
                     {
                         Console.Clear();
 
                         continue;
                     }
+                   
                     else
                     {
                         Console.WriteLine();
@@ -139,6 +141,7 @@ namespace TextRpg
                         continue;
                     }
                 }
+               
                 else if (input == "2")
                 {
                     while (true)
@@ -190,6 +193,7 @@ namespace TextRpg
                             Console.Clear();
                             break;
                         }
+                        
                         else if (subinput == "1")
                         {
                             while (true)
@@ -237,6 +241,7 @@ namespace TextRpg
                                         selectedItem.IsEquipped = true;
                                         Console.WriteLine($"\n{selectedItem.Name}을(를) 장착했습니다.");
                                     }
+                                   
                                     else
                                     {
                                         selectedItem.IsEquipped = false;
@@ -248,6 +253,7 @@ namespace TextRpg
                                     Console.WriteLine("엔터를 누르면 계속합니다.");
                                     Console.ReadLine();
                                 }
+                                
                                 else
                                 {
                                     Console.WriteLine();
@@ -276,6 +282,7 @@ namespace TextRpg
                                 inventory = newInventory;
                                 Console.WriteLine("아이템이 삭제되었습니다.");
                             }
+                           
                             else
                             {
                                 Console.WriteLine("잘못된 번호입니다.");
@@ -284,6 +291,7 @@ namespace TextRpg
                             Console.ReadLine();
                             Console.Clear();
                         }
+                        
                         else
                         {
                             Console.WriteLine();
@@ -293,6 +301,7 @@ namespace TextRpg
                         }
                     }
                 }
+               
                 else if (input == "3")
                 {
                     while (true)
@@ -329,6 +338,7 @@ namespace TextRpg
                             Console.Clear();
                             break;
                         }
+                       
                         else if (shopinput == "1")
                         {
                             while (true)
@@ -358,14 +368,66 @@ namespace TextRpg
                                     Console.Clear();
                                     break;
                                 }
+                               
                                 else if (int.TryParse(buyInput, out int idx) && idx >= 1 && idx <= shopItems.Count)
                                 {
                                     var selected = shopItems[idx - 1];
+
+                                    // 중복 체크
+
+                                    bool isDuplicate = false;
+                                    for (int i = 0; i < inventory.Length; i++)
+                                    {
+                                        if (inventory[i].Name == selected.Name)
+                                        {
+                                            isDuplicate = true;
+                                            break;
+                                        }
+                                    }
+
+                                    if (isDuplicate)
+                                    {
+                                        Console.WriteLine();
+                                        Console.WriteLine("이미 인벤토리에 있는 아이템입니다. 중복 구매할 수 없습니다.");
+                                    }
+                                    
+                                    else if (selected.IsPurchased)
+                                    {
+                                        Console.WriteLine();
+                                        Console.WriteLine("이미 구매한 아이템입니다.");
+                                    }
+                                   
+                                    else if (playerGold >= selected.Price)
+                                    {
+                                        playerGold = selected.Price;
+                                        selected.IsPurchased = true;
+
+                                        Item[] newInventory = new Item[inventory.Length + 1];
+                                        for (int i = 0; i < inventory.Length; i++)
+                                        {
+                                            newInventory[i] = inventory[i];
+                                        }
+                                        newInventory[newInventory.Length - 1] = new Item(selected.Name, selected.Effect, selected.Description);
+                                        inventory = newInventory;
+
+                                        Console.WriteLine();
+                                        Console.WriteLine("구매를 완료했습니다.");
+                                    }
+                                    
+                                    else
+                                    {
+                                        Console.WriteLine();
+                                        Console.WriteLine("Gold가 부족합니다.");
+                                    }
+                                    Console.WriteLine("엔터를 누르면 계속합니다.");
+                                    Console.ReadLine();
+
                                     if (selected.IsPurchased)
                                     {
                                         Console.WriteLine();
                                         Console.WriteLine("이미 구매한 아이템입니다.");
                                     }
+                                    
                                     else if (playerGold >= selected.Price)
                                     {
                                         playerGold -= selected.Price;
@@ -384,7 +446,7 @@ namespace TextRpg
                                             // 기존 아이템 복사
 
                                             newInventory[i] = inventory[i];
-                                            
+
                                         }
                                         newInventory[newInventory.Length - 1] = new Item(selected.Name, selected.Effect, selected.Description);
 
@@ -395,6 +457,7 @@ namespace TextRpg
                                         Console.WriteLine();
                                         Console.WriteLine("구매를 완료했습니다.");
                                     }
+                                    
                                     else
                                     {
                                         Console.WriteLine();
@@ -403,6 +466,7 @@ namespace TextRpg
                                     Console.WriteLine("엔터를 누르면 계속합니다.");
                                     Console.ReadLine();
                                 }
+                                
                                 else
                                 {
                                     Console.WriteLine();
@@ -411,6 +475,7 @@ namespace TextRpg
                                 }
                             }
                         }
+                        
                         else if (shopinput == "2")
                         {
                             while (true)
@@ -440,6 +505,7 @@ namespace TextRpg
                                     Console.Clear();
                                     break;
                                 }
+                               
                                 else if (int.TryParse(sellInput, out int sellIdx) && sellIdx >= 1 && sellIdx <= inventory.Length)
                                 {
                                     var sellItem = inventory[sellIdx - 1];
@@ -455,10 +521,12 @@ namespace TextRpg
                                             break;
                                         }
                                     }
+                                    
                                     if (originPrice == 0)
                                     {
                                         Console.WriteLine("이 아이템은 판매할 수 없습니다.");
                                     }
+                                   
                                     else
                                     {
                                         int sellPrice = originPrice / 3;
@@ -479,6 +547,7 @@ namespace TextRpg
                                     Console.WriteLine("엔터를 누르면 계속합니다.");
                                     Console.ReadLine();
                                 }
+                                
                                 else
                                 {
                                     Console.WriteLine("잘못된 입력입니다. 엔터를 누르면 계속합니다.");
@@ -486,6 +555,7 @@ namespace TextRpg
                                 }
                             }
                         }
+                        
                         else
                         {
                             Console.WriteLine();
@@ -495,10 +565,12 @@ namespace TextRpg
                         }
                     }
                 }
+                
                 else if (input == "0")
                 {
                     isRunning = false;
                 }
+                
                 else
                 {
                     Console.WriteLine("잘못된 입력입니다. 엔터를 누르면 메인메뉴로 돌아갑니다.");
