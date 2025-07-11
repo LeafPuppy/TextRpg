@@ -12,3 +12,4 @@ E:\C#\TextRpg\TextRpg\obj\Debug\net8.0\refint\TextRpg.dll
 E:\C#\TextRpg\TextRpg\obj\Debug\net8.0\TextRpg.pdb
 E:\C#\TextRpg\TextRpg\obj\Debug\net8.0\TextRpg.genruntimeconfig.cache
 E:\C#\TextRpg\TextRpg\obj\Debug\net8.0\ref\TextRpg.dll
+E:\C#\TextRpg\TextRpg\obj\Debug\net8.0\TextRpg.sourcelink.json

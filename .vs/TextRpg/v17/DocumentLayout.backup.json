@@ -23,15 +23,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "TextRpg",
+              "Title": "TextRpg.csproj",
               "DocumentMoniker": "E:\\C#\\TextRpg\\TextRpg\\TextRpg.csproj",
               "RelativeDocumentMoniker": "TextRpg\\TextRpg.csproj",
               "ToolTip": "E:\\C#\\TextRpg\\TextRpg\\TextRpg.csproj",
               "RelativeToolTip": "TextRpg\\TextRpg.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-07-10T08:46:31.803Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-10T08:46:31.803Z"
             },
             {
               "$type": "Document",
@@ -41,7 +40,7 @@
               "RelativeDocumentMoniker": "TextRpg\\Program.cs",
               "ToolTip": "E:\\C#\\TextRpg\\TextRpg\\Program.cs",
               "RelativeToolTip": "TextRpg\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAABEAAAAAAAAAAADwvx8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-10T01:35:06.548Z",
               "EditorCaption": ""

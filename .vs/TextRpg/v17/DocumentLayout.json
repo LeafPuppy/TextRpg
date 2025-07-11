@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "E:\\C#\\TextRpg\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{873A858E-B571-4755-B59B-FFEED5024CA3}|TextRpg 2.0\\TextRpg 2.0.csproj|e:\\c#\\textrpg\\textrpg 2.0\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{873A858E-B571-4755-B59B-FFEED5024CA3}|TextRpg 2.0\\TextRpg 2.0.csproj|solutionrelative:textrpg 2.0\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A796E93F-8F83-425D-81A7-A12E2C9BBC6A}|TextRpg\\TextRpg.csproj|e:\\c#\\textrpg\\textrpg\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A796E93F-8F83-425D-81A7-A12E2C9BBC6A}|TextRpg\\TextRpg.csproj|solutionrelative:textrpg\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -18,11 +22,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\C#\\TextRpg\\TextRpg 2.0\\Program.cs",
+              "RelativeDocumentMoniker": "TextRpg 2.0\\Program.cs",
+              "ToolTip": "E:\\C#\\TextRpg\\TextRpg 2.0\\Program.cs",
+              "RelativeToolTip": "TextRpg 2.0\\Program.cs",
+              "ViewState": "AgIAANUBAAAAAAAAAAAQwOIBAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-11T04:23:11.341Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "TextRpg.csproj",
               "DocumentMoniker": "E:\\C#\\TextRpg\\TextRpg\\TextRpg.csproj",
               "RelativeDocumentMoniker": "TextRpg\\TextRpg.csproj",
@@ -30,17 +47,18 @@
               "RelativeToolTip": "TextRpg\\TextRpg.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-07-10T08:46:31.803Z"
+              "WhenOpened": "2025-07-10T08:46:31.803Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "E:\\C#\\TextRpg\\TextRpg\\Program.cs",
               "RelativeDocumentMoniker": "TextRpg\\Program.cs",
               "ToolTip": "E:\\C#\\TextRpg\\TextRpg\\Program.cs",
               "RelativeToolTip": "TextRpg\\Program.cs",
-              "ViewState": "AgIAAJIBAAAAAAAAAAAuwD0BAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD0BAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-10T01:35:06.548Z",
               "EditorCaption": ""

@@ -1,64 +1,23 @@
-﻿// 혹시 몰라서 using문을 넣음
-
-using System;
-using System.Collections.Generic; 
+﻿using System;
+using System.Collections.Generic;
 
 namespace TextRpg
 {
-    // 아이템 정보를 담는 클래스
-    // 일종의 "아이템 하나"를 설명하는 설계도
-
     class Item
     {
-        // [{ get; set; }]은 "자동 구현 프로퍼티(Auto-Implemented Property)"라고 함
-        // get은 값을 읽을 때(가져올 때) 사용
-        // set은 값을 저장(변경)할 때 사용
-        // 이전 방식에는 필드와 프로퍼티를 따로 선언을 해야 했음
-        // 그러나 이제는 { get; set; }만 쓰면 자동으로 내부에 값을 저장하는 공간도 만들어줌(코드 간략화, 인식 개선)
-        // 외부에서 직접 변수에 접근하지 않고, 프로퍼티를 통해서만 값을 주고받게 할 수 있음(캡슐화[정보 은닉])
-       
-        // ex)
-
-        // 예전 방식(직접 구현)
-        
-        // private string name;
-        // public string Name
-        // {
-        //     get { return name; }
-        //     set { name = value; }
-        // }
-
-        // 자동 구현 프로퍼티(간단)
-
-        // public string Name { get; set; }
-
-
-        // 아이템 이름
         public string Name { get; set; }
-        // 아이템 능력
-        public string Effect {  get; set; }
-        // 아이템 설명
-        public string Description {  get; set; }
-        // 아이템 장착 유무
-        public bool IsEquipped {  get; set; }
-
-        // 아이템을 만들 때(생성할 때) 필요한 정보(이름, 효과, 설명)를 넣어주는 특별한 함수(생성자)
+        public string Effect { get; set; }
+        public string Description { get; set; }
+        public bool IsEquipped { get; set; }
 
         public Item(string name, string effect, string description)
         {
-            // 위에서 받은 name을 Name에 저장
             Name = name;
-            // 위에서 받은 effect를 Effect에 저장
             Effect = effect;
-            // 위에서 받은 description을 Description에 저장
             Description = description;
-            // 처음에는 장착 안 한 상태(false)로 시작
             IsEquipped = false;
         }
     }
-
-    // 상점에서 판매하는 아이템 클래스
-
     class ShopItem
     {
         public string Name { get; set; }
@@ -67,7 +26,7 @@ namespace TextRpg
         public int Price { get; set; }
         public bool IsPurchased { get; set; }
 
-        public ShopItem(string name, string effect, string description, int price, bool isPurchased =  false)
+        public ShopItem(string name, string effect, string description, int price, bool isPurchased = false)
         {
             Name = name;
             Effect = effect;
@@ -77,66 +36,55 @@ namespace TextRpg
         }
     }
 
-    // [internal]은 이 클래스가 같은 프로젝트(어셈블리) 안에서만 접근 가능하다는 의미.
-
     internal class Program
     {
-        // 프로그램의 "시작점(Entry Point)"임
-
         static void Main(string[] args)
         {
-            //플레이어 정보
             int playerGold = 800;
 
-            //인벤토리(플레이어가 가진 아이템)
-            // var는 변수의 타입(자료형)을 컴퓨터가 알아서 정해달라는 의미
-            // 즉, 오른쪽에 어떤 값을 넣는지 보고 C#이 자동으로 변수의 자료형을 결정
-            // 너무 남용하면 코드가 헷갈릴 수 있지만 타입이 명확할 때는 코드를 짧고 간단하게 쓸 수 있음
+            // var inventory = new List<Item>
+            // {
+            //    new Item("무쇠갑옷", "방어력 +5", "무쇠로 만들어져 튼튼한 갑옷입니다."),
+            //    new Item("스파르타의 창", "공격력 +7", "스파르타의 전사들이 사용했다는 전설의 창입니다."),
+            //    new Item("낡은 검", "공격력 +2", "쉽게 볼 수 있는 낡은 검입니다.")
+            // };
+            // 아이템 정보를 배열로 관리
 
-            var inventory = new List<Item>
+            // 인벤토리를 List<Item>에서 Item[] 배열로 변경
+            // List는 크기가 자유롭게 늘어나고 줄어듬.
+            // 하지만 배열(Item[])은 크기가 "고정"되어 있음
+            
+            // 배열로 바꿔보는 이유
+            // 배열의 특징(고정 크기, 인덱스로 접근)을 직접 체험, List와의 차이를 느껴보기 위해
+
+            // 차이점 
+            // List는 Add, Remove로 자유롭게 추가/삭제가 가능
+            // 배열은 처음 만든 크기만큼만 공간이 있고, 추가하려면 "새 배열을 만들어 복사"해야 함
+
+            Item[] inventory = new Item[]
             {
                 new Item("무쇠갑옷", "방어력 +5", "무쇠로 만들어져 튼튼한 갑옷입니다."),
                 new Item("스파르타의 창", "공격력 +7", "스파르타의 전사들이 사용했다는 전설의 창입니다."),
                 new Item("낡은 검", "공격력 +2", "쉽게 볼 수 있는 낡은 검입니다.")
             };
 
-            // 상점 아이템 목록
             var shopItems = new List<ShopItem>()
             {
                 new ShopItem("수련자 갑옷", "방어력 +5", "수련에 도움을 주는 갑옷입니다.", 1000),
-                new ShopItem("무쇠갑옷", "방어력 +9", "무쇠로 만들어져 튼튼한 갑옷입니다.", 2000, true), // 이미 구매
+                new ShopItem("무쇠갑옷", "방어력 +9", "무쇠로 만들어져 튼튼한 갑옷입니다.", 2000, true),
                 new ShopItem("스파르타의 갑옷", "방어력 +15", "스파르타 전사들이 사용했다는 전설의 갑옷입니다.", 3500),
                 new ShopItem("낡은 검", "공격력 +2", "쉽게 볼 수 있는 낡은 검 입니다.", 600),
                 new ShopItem("청동 도끼", "공격력 +5", "어디선가 사용됐던거 같은 도끼입니다.", 1500),
-                new ShopItem("스파르타의 창", "공격력 +7", "스파르타 전사들이 사용했다는 전설의 창입니다.", 2500, true) // 이미 구매
+                new ShopItem("스파르타의 창", "공격력 +7", "스파르타 전사들이 사용했다는 전설의 창입니다.", 2500, true)
             };
 
-            // 프로그램 실행 여부를 제어하는 변수
-
-            // 반복문(while)과 함께 사용
-            // 프로그램이 한 번만 사용되고 끝나는 것이 아닌 메뉴를 계속 보여주고, 사용자가 원하는 행동을 반복해서 처리하려면 반복문(while, for 등)이 필요
-
-            // 종료 조건이 필요
-            // 무한 반복문(while(true))을 쓰면 프로그램이 끝나지 않고 계속 돌아감
-            // 사용자가 "종료"를 선택하면 프로그램이 멈춰야 함
-            // 이때 isRunning이 true일 때만 반복하도록 하면
-            // 사용자가 종료(ex) 0 입력)를 선택했을 때 isRunning을 false로 바꿔서 반복문을 빠져나와 프로그램이 종료됨
-
-            bool isRunning = true; 
-
-            // 실행 중일 동안
+            bool isRunning = true;
 
             while (isRunning)
             {
-                // 안내 메세지 출력
-
-                // [Console.WriteLine()] 화면에 텍스트를 한 줄씩 출력. 안내 메세지, 선택지 등을 보여줄 떄 사용
-
                 Console.WriteLine("스파르타 마을에 오신 여러분 환영합니다.");
                 Console.WriteLine("이곳에서 던전으로 들어가기전 활동을 할 수 있습니다.");
                 Console.WriteLine();
-
-                // 선택지 출력
 
                 Console.WriteLine();
                 Console.WriteLine("1. 상태 보기");
@@ -149,39 +97,14 @@ namespace TextRpg
                 Console.WriteLine();
                 Console.WriteLine();
 
-                // 입력 안내 및 입력 받기
-
-                // [Console.Write()] 텍스트를 출력하지만 줄 바꿈을 하지 않음
-                // 입력 프롬프트(>>)를 만들 때 사용하면 입력 위치가 자연스럽게 이어짐
-                // [\n] 프로그래밍에서 "줄 바꿈(개행, newline)"을 의미하는 특수 문자
-                // \는 역슬래시로 인식됨
-                // 단순이 폰트 차이임
-                // 실제로는 같음
-                // 단순히 "문자코드(ASCII/유니코드)에서 역슬래시와 원화 기호가 같은 위치(0x5C)"를 공유하기 때문임
-
                 Console.Write("원하시는 행동을 입력해주세요.\n>> ");
-
-                // 사용자 입력 확인
-
-                // Console.ReadLine();
-                // 사용자가 키보드로 입력하고 엔터를 칠 때까지 프로그램 실행을 잠깐 멈추게 하는 코드.
-                // 사용자가 메세지를 읽을 시간을 주기에 좋음.
-
-                // string input = Console.ReadLine() 입력받은 값을 input 변수에 저장
-                // 나중에 조건문(if 등)으로 분기하거나, 입력값을 확인 할 때 사용
 
                 string input = Console.ReadLine();
 
-                // [Console.Clear();] 이전 화면을 지워서 깔끔하게 만듬
-
                 Console.Clear();
-
-                // 처음에만 if문으로 사용 후  참이 아닐시에만 else if문들이 검사를 시작함으로
-                // 이러한 조건이 겹치지 않는 경우에는 if문으로만 사용하는 것이 아닌 else if문을 이용해서 불필요한 존건 검사를 방지 할 수 있음
 
                 if (input == "1")
                 {
-                    // 상태 보기 출력
 
                     Console.WriteLine("상태 보기");
                     Console.WriteLine("캐릭터의 정보가 표시 됩니다.");
@@ -200,21 +123,12 @@ namespace TextRpg
                     Console.WriteLine();
                     Console.Write("원하시는 행동을 입력해주세요.\n>> ");
 
-                    // [subinput] 서브 메뉴에서 입력을 따로 저장하는 변수
-                    // 메인 메뉴에서 input을 이미 사용중이기에 또 다시 input을 사용하면 메인 메뉴에서 사용하던 이전 input 값이 덮어쓰여서 헷갈릴 수 있음
-                    // 그렇기에 각 메뉴(메인, 서브)에서 입력을 명확하게 구분하면 코드를 읽고 관리하기 쉬워짐
-
                     string subinput = Console.ReadLine();
                     if (subinput == "0")
                     {
                         Console.Clear();
 
-                        // [continue;] 메인 메뉴로 돌아감
-                        // continue 문은 반복문(while, for, foreach 등) 안에서 사용될 때, 형재 반복(루프)의 나머지 코드를 건너뛰고,
-                        // 바로 다음 반복을 시작하게 만듬
-                        // 즉, continue를 만나면 그 이후에 존재하는 코드는 실행하지 않고 while 조건을 다시 검사해서 반복문의 처음(=메인 메뉴 출력 부분)으로 이동
-                        
-                        continue; 
+                        continue;
                     }
                     else
                     {
@@ -229,8 +143,6 @@ namespace TextRpg
                 {
                     while (true)
                     {
-                        // 인벤토리 화면 출력
-
                         Console.WriteLine("인벤토리");
                         Console.WriteLine("보유 중인 아이템을 관리할 수 있습니다.");
                         Console.WriteLine();
@@ -238,26 +150,33 @@ namespace TextRpg
                         Console.WriteLine("[아이템 목록]");
                         Console.WriteLine();
                         Console.WriteLine();
-                        foreach (var item in inventory)
+
+                        // foreach (var item in inventory)
+                        // {
+                        //     string equipMark = item.IsEquipped ? "[ E ] " : "";
+
+                        //     Console.WriteLine($"- {equipMark} {item.Name,-10} | {item.Effect,-8} | {item.Description}");
+                        // }
+
+                        // foreach (var item in inventory) 가능, 또는 for문에서 inventory.Length 사용
+
+                        // 배열은  .Length로 길이를 확인함
+
+                        for (int i = 0; i < inventory.Length; i++)
                         {
-                            // item.IsEquipped가 true면 [ E ] 표시가 붙어서 "장착 중"임을 알려줌
-                            // [?]는
-                            // 자료형 뒤에 붙이면 "이 변수는 값이 없을 수도 있음(null이 될 수도 있음)"이라는 뜻
-                            // 조건 ? 참일때 값 : 거짓일 떄 값 이런 식으로 한줄로 if/else처럼 값을 선택할 때 사용
-                            // 어떤 객체가 null이 아닐 때만 그 뒤의 속성이나 메서드를 사용하고 싶을 때 a?.b처럼 사용
-
+                            var item = inventory[i];
                             string equipMark = item.IsEquipped ? "[ E ] " : "";
-
-                            // 이름, 효과, 설명이 보기 좋게 정렬되어 나옴
-                            // [$]은 "문자열 보간(String Interpolation)"을 사용할 때 붙임
-                            // 대상 되는 문자열 안에 변수나 식을 직접 넣는다는 뜻
-                            // 중괄호({})안에 변수나 계산식을 넣어서 값이 자동으로 문자열에 들어가게 해줌
-
                             Console.WriteLine($"- {equipMark} {item.Name,-10} | {item.Effect,-8} | {item.Description}");
                         }
+
                         Console.WriteLine();
                         Console.WriteLine();
                         Console.WriteLine("1. 장착관리");
+                        Console.WriteLine();
+
+                        // 배열로 교체하는 김에 아이템 삭제 기능 추가
+
+                        Console.WriteLine("2. 아이템 삭제");
                         Console.WriteLine();
                         Console.WriteLine("0. 나가기");
                         Console.WriteLine();
@@ -266,23 +185,13 @@ namespace TextRpg
 
                         string subinput = Console.ReadLine();
 
-                        // 인벤토리 메뉴에서 나가서 메인 메뉴로 돌아감
-                        
                         if (subinput == "0")
                         {
                             Console.Clear();
-
-                            // 인벤토리 메뉴에서 나가서 메인 메뉴로 돌아감
-                            // [break]는 반복문을 완전히 종료하고 반복문 바깥(다음 코드)으로 바로 빠져나감
-                            // 즉, 더 이상 반복하지 않고 반복문을 "탈출"함.
-                            // 나가기를 누르면 메뉴 반복문을 완전히 종료하고 메인 메뉴로 돌아가고 싶을때 사용
-
                             break;
                         }
                         else if (subinput == "1")
                         {
-                            // 장착 관리 메뉴로 진입
-
                             while (true)
                             {
                                 Console.Clear();
@@ -292,13 +201,13 @@ namespace TextRpg
                                 Console.WriteLine();
                                 Console.WriteLine();
                                 Console.WriteLine("[아이템 목록]");
-                                for (int i = 0; i < inventory.Count; i++)
+
+                                //for (int i = 0; i < inventory.Count; i++)
+
+                                for (int i = 0; i < inventory.Length; i++)
                                 {
                                     var item = inventory[i];
                                     string equipMark = item.IsEquipped ? "[ E ]" : "";
-
-                                    // {들어갈 대상, -10} 일때 -10의 자리는 -는 왼쪽, +는 오른쪽으로 숫자는 몇칸의 자리를 확보해라는 뜻
-
                                     Console.WriteLine($"- {i + 1} {equipMark}{item.Name,-10} | {item.Effect,-8} | {item.Description}");
                                 }
                                 Console.WriteLine();
@@ -314,10 +223,13 @@ namespace TextRpg
                                     Console.Clear();
                                     break;
                                 }
-                                
-                                // idx와 i는 Index를 뜻함
 
-                                else if (int.TryParse(equipInput, out int idx) && idx >= 1 && idx <= inventory.Count)
+                                // else if (int.TryParse(equipInput, out int idx) && idx >= 1 && idx <= inventory.Count)
+
+                                // 배열도 List처럼 인덱스(inventory[번호])로 접근해서 값을 바꿈
+                                // 클래스(참조형)이기 때문에, inventory.IsEquippted = ture; 처럼 바로 바꿔도 원본이 바뀜
+
+                                else if (int.TryParse(equipInput, out int idx) && idx >= 1 && idx <= inventory.Length)
                                 {
                                     var selectedItem = inventory[idx - 1];
                                     if (!selectedItem.IsEquipped)
@@ -330,6 +242,9 @@ namespace TextRpg
                                         selectedItem.IsEquipped = false;
                                         Console.WriteLine($"\n{selectedItem.Name}의 장착을 해제했습니다.");
                                     }
+
+                                    // 배열 + 클래스이므로 별도 재할당 필요 없음
+
                                     Console.WriteLine("엔터를 누르면 계속합니다.");
                                     Console.ReadLine();
                                 }
@@ -340,6 +255,34 @@ namespace TextRpg
                                     Console.ReadLine();
                                 }
                             }
+                        }
+
+                        // 아이템 삭제 기능 구현
+
+                        else if (subinput == "2")
+                        {
+                            Console.Write("삭제할 아이템 번호를 입력하세요.\n>> ");
+                            string delInput = Console.ReadLine();
+                            if (int.TryParse(delInput, out int delidx) && delidx >= 1 && delidx <= inventory.Length)
+                            {
+                                int deleteIndex = delidx - 1;
+                                Item[] newInventory = new Item[inventory.Length -1];
+                                int newidx = 0;
+                                for (int i = 0; i < inventory.Length; i++)
+                                {
+                                    if (i == deleteIndex) continue;
+                                    newInventory[newidx++] = inventory[i];
+                                }
+                                inventory = newInventory;
+                                Console.WriteLine("아이템이 삭제되었습니다.");
+                            }
+                            else
+                            {
+                                Console.WriteLine("잘못된 번호입니다.");
+                            }
+                            Console.WriteLine("엔터를 누르면 계속합니다.");
+                            Console.ReadLine();
+                            Console.Clear();
                         }
                         else
                         {
@@ -354,7 +297,7 @@ namespace TextRpg
                 {
                     while (true)
                     {
-                        Console.Clear ();
+                        Console.Clear();
                         Console.WriteLine("상점");
                         Console.WriteLine("필요한 아이템을 얻을 수 있는 상점입니다.");
                         Console.WriteLine();
@@ -372,6 +315,9 @@ namespace TextRpg
                         }
                         Console.WriteLine();
                         Console.WriteLine("1. 아이템 구매");
+                        Console.WriteLine();
+                        Console.WriteLine("2. 아이템 판매");
+                        Console.WriteLine();
                         Console.WriteLine("0. 나가기");
                         Console.WriteLine();
                         Console.WriteLine();
@@ -385,16 +331,14 @@ namespace TextRpg
                         }
                         else if (shopinput == "1")
                         {
-                            // 아이템 구매 메뉴
-
                             while (true)
                             {
-                                Console.Clear () ;
+                                Console.Clear();
                                 Console.WriteLine("상점 - 아이템 구매");
                                 Console.WriteLine();
                                 Console.WriteLine("필요한 아이템을 얻을 수 있는 상점입니다.");
                                 Console.WriteLine();
-                                Console.WriteLine ("[보유 골드]");
+                                Console.WriteLine("[보유 골드]");
                                 Console.WriteLine($"{playerGold} G");
                                 Console.WriteLine();
                                 for (int i = 0; i < shopItems.Count; i++)
@@ -402,7 +346,7 @@ namespace TextRpg
                                     string priceOrStatus = shopItems[i].IsPurchased ? "구매완료" : $"{shopItems[i].Price} G";
                                     Console.WriteLine($"- {i + 1} {shopItems[i].Name,-12} | {shopItems[i].Effect,-10} | {shopItems[i].Description,-40} | {priceOrStatus}");
                                 }
-                                Console.WriteLine ();
+                                Console.WriteLine();
                                 Console.WriteLine("0. 나가기");
                                 Console.WriteLine();
                                 Console.WriteLine();
@@ -427,9 +371,27 @@ namespace TextRpg
                                         playerGold -= selected.Price;
                                         selected.IsPurchased = true;
 
-                                        //인벤토리에 추가
+                                        // inventory.Add(new Item(selected.Name, selected.Effect, selected.Description));
+                                        // Console.WriteLine();
+                                        // Console.WriteLine("구매를 완료했습니다.");
 
-                                        inventory.Add(new Item(selected.Name, selected.Effect, selected.Description));
+                                        // 배열은 크기 고정이라 기존 아이템을 복사하고 마지막에 새 아이템을 넣고 인벤토리를 새 배열로 바꿔야함.
+
+                                        Item[] newInventory = new Item[inventory.Length + 1];
+                                        for (int i = 0; i < inventory.Length; i++)
+                                        {
+
+                                            // 기존 아이템 복사
+
+                                            newInventory[i] = inventory[i];
+                                            
+                                        }
+                                        newInventory[newInventory.Length - 1] = new Item(selected.Name, selected.Effect, selected.Description);
+
+                                        // 인벤토리 교체
+
+                                        inventory = newInventory;
+
                                         Console.WriteLine();
                                         Console.WriteLine("구매를 완료했습니다.");
                                     }
@@ -449,6 +411,81 @@ namespace TextRpg
                                 }
                             }
                         }
+                        else if (shopinput == "2")
+                        {
+                            while (true)
+                            {
+                                Console.Clear();
+                                Console.WriteLine("상점 - 아이템 판매");
+                                Console.WriteLine();
+                                Console.WriteLine("[보유 골드]");
+                                Console.WriteLine($"{playerGold} G");
+                                Console.WriteLine();
+                                Console.WriteLine();
+                                Console.WriteLine("[인벤토리 목록]");
+                                Console.WriteLine();
+                                for (int i = 0; i < inventory.Length; i++)
+                                {
+                                    var item = inventory[i];
+                                    Console.WriteLine($"- {i + 1} {item.Name,-10} | {item.Effect,-8} | {item.Description}");
+                                }
+                                Console.WriteLine();
+                                Console.WriteLine("0. 나가기");
+                                Console.WriteLine();
+                                Console.WriteLine();
+                                Console.Write("판매할 아이템 번호를 입력해주세요.\n>> ");
+                                string sellInput = Console.ReadLine();
+                                if (sellInput == "0")
+                                {
+                                    Console.Clear();
+                                    break;
+                                }
+                                else if (int.TryParse(sellInput, out int sellIdx) && sellIdx >= 1 && sellIdx <= inventory.Length)
+                                {
+                                    var sellItem = inventory[sellIdx - 1];
+
+                                    //상점에서 동일 이름의 아이템 찾기(없으면 0원)
+
+                                    int originPrice = 0;
+                                    foreach (var shopItem in shopItems)
+                                    {
+                                        if (shopItem.Name == sellItem.Name)
+                                        {
+                                            originPrice = shopItem.Price;
+                                            break;
+                                        }
+                                    }
+                                    if (originPrice == 0)
+                                    {
+                                        Console.WriteLine("이 아이템은 판매할 수 없습니다.");
+                                    }
+                                    else
+                                    {
+                                        int sellPrice = originPrice / 3;
+                                        playerGold += sellPrice;
+
+                                        //배열에서 삭제
+
+                                        Item[] newInventory = new Item[inventory.Length - 1];
+                                        int newidx = 0;
+                                        for (int i = 0; i < inventory.Length; i++)
+                                        {
+                                            if (i == sellIdx - 1) continue;
+                                            newInventory[newidx++] = inventory[i];
+                                        }
+                                        inventory = newInventory;
+                                        Console.WriteLine($"{sellItem.Name}을(를) 판매했습니다! (+{sellPrice}G)");
+                                    }
+                                    Console.WriteLine("엔터를 누르면 계속합니다.");
+                                    Console.ReadLine();
+                                }
+                                else
+                                {
+                                    Console.WriteLine("잘못된 입력입니다. 엔터를 누르면 계속합니다.");
+                                    Console.ReadLine();
+                                }
+                            }
+                        }
                         else
                         {
                             Console.WriteLine();
@@ -460,9 +497,6 @@ namespace TextRpg
                 }
                 else if (input == "0")
                 {
-
-                    // 프로그램 종료
-
                     isRunning = false;
                 }
                 else
@@ -473,7 +507,7 @@ namespace TextRpg
                 }
             }
 
-         
+
         }
     }
 }
