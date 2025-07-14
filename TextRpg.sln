@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextRpg", "TextRpg\TextRpg.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextRpg 2.0", "TextRpg 2.0\TextRpg 2.0.csproj", "{873A858E-B571-4755-B59B-FFEED5024CA3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextRpg Comment", "TextRpg Comment\TextRpg Comment.csproj", "{2B99689E-0BAE-4698-B0B1-8F7ABE2E21BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextRpg 3.0", "TextRpg 3.0\TextRpg 3.0.csproj", "{A1765ECB-359C-4D89-9C2B-88403064F4B5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{873A858E-B571-4755-B59B-FFEED5024CA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{873A858E-B571-4755-B59B-FFEED5024CA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{873A858E-B571-4755-B59B-FFEED5024CA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B99689E-0BAE-4698-B0B1-8F7ABE2E21BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B99689E-0BAE-4698-B0B1-8F7ABE2E21BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B99689E-0BAE-4698-B0B1-8F7ABE2E21BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B99689E-0BAE-4698-B0B1-8F7ABE2E21BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1765ECB-359C-4D89-9C2B-88403064F4B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1765ECB-359C-4D89-9C2B-88403064F4B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1765ECB-359C-4D89-9C2B-88403064F4B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1765ECB-359C-4D89-9C2B-88403064F4B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

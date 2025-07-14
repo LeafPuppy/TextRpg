@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "E:\\C#\\TextRpg\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{873A858E-B571-4755-B59B-FFEED5024CA3}|TextRpg 2.0\\TextRpg 2.0.csproj|e:\\c#\\textrpg\\textrpg 2.0\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{873A858E-B571-4755-B59B-FFEED5024CA3}|TextRpg 2.0\\TextRpg 2.0.csproj|solutionrelative:textrpg 2.0\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2B99689E-0BAE-4698-B0B1-8F7ABE2E21BC}|TextRpg Comment\\TextRpg Comment.csproj|e:\\c#\\textrpg\\textrpg comment\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B99689E-0BAE-4698-B0B1-8F7ABE2E21BC}|TextRpg Comment\\TextRpg Comment.csproj|solutionrelative:textrpg comment\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A796E93F-8F83-425D-81A7-A12E2C9BBC6A}|TextRpg\\TextRpg.csproj|e:\\c#\\textrpg\\textrpg\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A796E93F-8F83-425D-81A7-A12E2C9BBC6A}|TextRpg\\TextRpg.csproj|solutionrelative:textrpg\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2B99689E-0BAE-4698-B0B1-8F7ABE2E21BC}|TextRpg Comment\\TextRpg Comment.csproj|e:\\c#\\textrpg\\textrpg comment\\no class.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B99689E-0BAE-4698-B0B1-8F7ABE2E21BC}|TextRpg Comment\\TextRpg Comment.csproj|solutionrelative:textrpg comment\\no class.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A796E93F-8F83-425D-81A7-A12E2C9BBC6A}|TextRpg\\TextRpg.csproj|e:\\c#\\textrpg\\textrpg\\textrpg.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{A796E93F-8F83-425D-81A7-A12E2C9BBC6A}|TextRpg\\TextRpg.csproj|solutionrelative:textrpg\\textrpg.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{2B99689E-0BAE-4698-B0B1-8F7ABE2E21BC}|TextRpg Comment\\TextRpg Comment.csproj|e:\\c#\\textrpg\\textrpg comment\\character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B99689E-0BAE-4698-B0B1-8F7ABE2E21BC}|TextRpg Comment\\TextRpg Comment.csproj|solutionrelative:textrpg comment\\character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B99689E-0BAE-4698-B0B1-8F7ABE2E21BC}|TextRpg Comment\\TextRpg Comment.csproj|e:\\c#\\textrpg\\textrpg comment\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B99689E-0BAE-4698-B0B1-8F7ABE2E21BC}|TextRpg Comment\\TextRpg Comment.csproj|solutionrelative:textrpg comment\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,45 +26,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "E:\\C#\\TextRpg\\TextRpg 2.0\\Program.cs",
-              "RelativeDocumentMoniker": "TextRpg 2.0\\Program.cs",
-              "ToolTip": "E:\\C#\\TextRpg\\TextRpg 2.0\\Program.cs",
-              "RelativeToolTip": "TextRpg 2.0\\Program.cs",
-              "ViewState": "AgIAANUBAAAAAAAAAAAQwOIBAAAhAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "Character.cs",
+              "DocumentMoniker": "E:\\C#\\TextRpg\\TextRpg Comment\\Character.cs",
+              "RelativeDocumentMoniker": "TextRpg Comment\\Character.cs",
+              "ToolTip": "E:\\C#\\TextRpg\\TextRpg Comment\\Character.cs",
+              "RelativeToolTip": "TextRpg Comment\\Character.cs",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAowGAAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-11T04:23:11.341Z",
+              "WhenOpened": "2025-07-14T07:33:13.016Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "TextRpg.csproj",
-              "DocumentMoniker": "E:\\C#\\TextRpg\\TextRpg\\TextRpg.csproj",
-              "RelativeDocumentMoniker": "TextRpg\\TextRpg.csproj",
-              "ToolTip": "E:\\C#\\TextRpg\\TextRpg\\TextRpg.csproj",
-              "RelativeToolTip": "TextRpg\\TextRpg.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-07-10T08:46:31.803Z",
+              "DocumentIndex": 3,
+              "Title": "Item.cs",
+              "DocumentMoniker": "E:\\C#\\TextRpg\\TextRpg Comment\\Item.cs",
+              "RelativeDocumentMoniker": "TextRpg Comment\\Item.cs",
+              "ToolTip": "E:\\C#\\TextRpg\\TextRpg Comment\\Item.cs",
+              "RelativeToolTip": "TextRpg Comment\\Item.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-14T07:30:20.173Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\C#\\TextRpg\\TextRpg Comment\\Program.cs",
+              "RelativeDocumentMoniker": "TextRpg Comment\\Program.cs",
+              "ToolTip": "E:\\C#\\TextRpg\\TextRpg Comment\\Program.cs",
+              "RelativeToolTip": "TextRpg Comment\\Program.cs",
+              "ViewState": "AgIAAJ0AAAAAAAAAAAAcwKAAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-13T23:36:23.653Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "E:\\C#\\TextRpg\\TextRpg\\Program.cs",
-              "RelativeDocumentMoniker": "TextRpg\\Program.cs",
-              "ToolTip": "E:\\C#\\TextRpg\\TextRpg\\Program.cs",
-              "RelativeToolTip": "TextRpg\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD0BAAA0AAAAAAAAAA==",
+              "Title": "No Class.cs",
+              "DocumentMoniker": "E:\\C#\\TextRpg\\TextRpg Comment\\No Class.cs",
+              "RelativeDocumentMoniker": "TextRpg Comment\\No Class.cs",
+              "ToolTip": "E:\\C#\\TextRpg\\TextRpg Comment\\No Class.cs",
+              "RelativeToolTip": "TextRpg Comment\\No Class.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-10T01:35:06.548Z",
+              "WhenOpened": "2025-07-14T07:21:58.947Z",
               "EditorCaption": ""
             }
           ]

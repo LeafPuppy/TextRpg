@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic; 
 
-namespace TextRpg
+namespace TextRpg_1
 {
     // 아이템 정보를 담는 클래스
     // 일종의 "아이템 하나"를 설명하는 설계도

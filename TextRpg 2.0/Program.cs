@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace TextRpg
+namespace TextRpg_2
 {
     class Item
     {
